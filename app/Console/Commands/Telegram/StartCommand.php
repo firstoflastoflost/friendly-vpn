@@ -13,10 +13,15 @@ class StartCommand extends Command
 
     public function handle()
     {
-        $chatId = $this->getUpdate()->getMessage()->getChat()->getId();
+        try {
+            $chatId = $this->getUpdate()->getMessage()->getChat()->getId();
 
-        Log::info("request", ['$chatId' => $chatId]);
+            Log::info("request", ['$chatId' => $chatId]);
 
-        $this->replyWithMessage(['chat_id' => $chatId, 'text' => 'Hello! Welcome to our bot.']);
+            $this->replyWithMessage(['chat_id' => $chatId, 'text' => 'Hello! Welcome to our bot.']);
+        }catch (\Exception $e){
+            Log::info($e->getMessage());
+        }
+
     }
 }
