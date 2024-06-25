@@ -1,7 +1,5 @@
 <?php
 
-use App\Console\Commands\Telegram\StartCommand;
-
 return [
     /*
     |--------------------------------------------------------------------------
@@ -36,7 +34,7 @@ return [
             'certificate_path'    => env('TELEGRAM_CERTIFICATE_PATH', 'YOUR-CERTIFICATE-PATH'),
             'webhook_url'         => env('TELEGRAM_WEBHOOK_URL', 'YOUR-BOT-WEBHOOK-URL'),
             'commands'            => [
-                StartCommand::class,
+                App\Console\Commands\Telegram\StartCommand::class,
             ],
         ],
 
@@ -114,7 +112,6 @@ return [
     */
     'commands'                     => [
         Telegram\Bot\Commands\HelpCommand::class,
-        StartCommand::class
     ],
 
     /*
