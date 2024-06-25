@@ -17,9 +17,9 @@ class TelegramController extends BaseController
 
     protected Api $telegram;
 
-    public function __construct(Api $telegram)
+    public function __construct()
     {
-        $this->telegram = $telegram;
+        $this->telegram = new Api();
     }
 
     public function handleWebhook(Request $request): JsonResponse

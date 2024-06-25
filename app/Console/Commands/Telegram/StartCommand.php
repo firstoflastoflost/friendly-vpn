@@ -12,8 +12,7 @@ class StartCommand extends Command
 
     public function handle()
     {
-        $this->replyWithMessage([
-            'text' => 'Hey, there! Welcome to our bot!',
-        ]);
+        $chatId = $this->getUpdate()->getMessage()->getChat()->getId();
+        $this->replyWithMessage(['chat_id' => $chatId, 'text' => 'Hello! Welcome to our bot.']);
     }
 }
