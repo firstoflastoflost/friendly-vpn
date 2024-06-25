@@ -24,8 +24,6 @@ class TelegramController extends BaseController
 
     public function handleWebhook(Request $request): JsonResponse
     {
-        Log::info("requestDD", ['message' => $this->telegram->getWebhookUpdate()->getMessage()->text]);
-
         $this->telegram->commandsHandler(true);
 
         return response()->json(['status' => 'ok']);
